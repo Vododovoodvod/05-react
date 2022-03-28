@@ -1,5 +1,6 @@
 import logo from './image.jpg';
 import './App.css';
+import { nanoid } from "nanoid";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         >
           Vododovoodvod GIT
         </a>
+        <p>{nanoid()}</p>
       </header>
     </div>
   );
