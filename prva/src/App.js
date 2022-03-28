@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './image.jpg';
 import './App.css';
 
 function App() {
@@ -10,12 +10,12 @@ function App() {
           Ja sam Tomislav.
         </p>
         <a
-          className="App-link"
-          href="https://reactjs.org"
+          className="Vododovoodvod GIT"
+          href="https://github.com/Vododovoodvod/05-react"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Vododovoodvod GIT
         </a>
       </header>
     </div>
