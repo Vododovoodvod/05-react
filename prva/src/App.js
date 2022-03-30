@@ -1,6 +1,9 @@
 import logo from './image.jpg';
 import './App.css';
-import { idHelpers, arrayHelpers }  from "./library/helpers";
+import { idHelpers }  from "./library/helpers";
+import { randomValue } from "./library/components/randomValues";
+import { RepositoryLink } from "./library/components/repositoryLink";
+
 
 function App() {
   return (
@@ -10,16 +13,9 @@ function App() {
         <p>
           Ja sam Tomislav.
         </p>
-        <a
-          className="Vododovoodvod GIT"
-          href="https://github.com/Vododovoodvod/05-react"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vododovoodvod GIT
-        </a>
+        { RepositoryLink() }
         <p>{idHelpers.generateID()}</p>
-        <p>{console.log(arrayHelpers.getRandomElement([1, 2, 3]))}</p>
+        { randomValue() }
       </header>
     </div>
   );
