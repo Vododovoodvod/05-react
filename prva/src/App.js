@@ -13,9 +13,9 @@ function App() {
         <p>
           Ja sam Tomislav.
         </p>
-        { RepositoryLink() }
+        < RepositoryLink />
         <p>{idHelpers.generateID()}</p>
-        { randomValue() }
+        < randomValue />
       </header>
     </div>
   );
