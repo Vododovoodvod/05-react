@@ -1,6 +1,6 @@
 import logo from './image.jpg';
 import './App.css';
-import { nanoid } from "nanoid";
+import { idHelpers, arrayHelpers }  from "./library/helpers";
 
 function App() {
   return (
@@ -18,7 +18,8 @@ function App() {
         >
           Vododovoodvod GIT
         </a>
-        <p>{nanoid()}</p>
+        <p>{idHelpers.generateID()}</p>
+        <p>{console.log(arrayHelpers.getRandomElement([1, 2, 3]))}</p>
       </header>
     </div>
   );
