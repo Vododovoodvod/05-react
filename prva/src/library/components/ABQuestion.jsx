@@ -1,20 +1,31 @@
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
+import "./ABQuestion.css";
 
-export function ABQuestion (props) {
-    return (
-        <div>
-            <div>{props.question}</div>
-            <button onClick={() => props.onChoice(props.buttonAValue)}>{props.buttonA}</button>
-            <button onClick={() => props.onChoice(props.buttonBValue)}>{props.buttonB}</button>
-        </div>
-    );
+export function ABQuestion(props) {
+  const handleOnClickA = () => props.onChoice(props.id, props.buttonAValue);
+  const handleOnClickB = () => props.onChoice(props.id, props.buttonBValue);
+
+  return (
+    <div className="ABQuestion">
+      <p className="ABQuestion__text">{props.question}</p>
+      <div className="ABQuestion__answers">
+        <button className="ABQuestion__answer" onClick={handleOnClickA}>
+          {props.buttonA}
+        </button>
+        <button className="ABQuestion__answer" onClick={handleOnClickB}>
+          {props.buttonB}
+        </button>
+      </div>
+    </div>
+  );
 }
 
 ABQuestion.propTypes = {
-    onChoice: propTypes.func.isRequired,
-    question: propTypes.string.isRequired,
-    buttonA: propTypes.string.isRequired,
-    buttonB: propTypes.string.isRequired,
-    buttonAValue: propTypes.string.isRequired,
-    buttonBValue: propTypes.string.isRequired,
-}
+  id: PropTypes.string.isRequired,
+  onChoice: PropTypes.func.isRequired,
+  question: PropTypes.string.isRequired,
+  buttonA: PropTypes.string.isRequired,
+  buttonB: PropTypes.string.isRequired,
+  buttonAValue: PropTypes.string.isRequired,
+  buttonBValue: PropTypes.string.isRequired,
+};
