@@ -17,6 +17,15 @@ function App() {
     setLoginInfo(fromState);
   };
 
+  let answerComponents = null;
+  
+  if (quizAnswer !== null) {
+    answerComponents = Object.keys(quizAnswer.answers).map((key) => {
+    return (
+      <div key={key}> {key} : {quizAnswer.answers[key]}</div>
+    );
+    })};
+
   return (
     <div className="App">
       <header className="App-header">
@@ -30,7 +39,7 @@ function App() {
         {loginInfo !== null && quizAnswer === null && <Quiz id={id} onSubmit={handleSubmit} />}
         {quizAnswer !== null && (
           <div>
-            {JSON.stringify(quizAnswer)}
+            {answerComponents}
           </div>
         )}
       </header>
