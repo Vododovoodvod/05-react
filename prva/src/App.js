@@ -1,5 +1,7 @@
 import "./App.css";
 import { idHelpers } from "./library/helpers";
+import { RandomValue } from "./library/components/RandomValues";
+import { RepositoryLink } from "./library/components/RepositoryLink";
 import { Quiz } from "./library/components/Quiz";
 import { useState } from "react";
 
@@ -13,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <RepositoryLink>View Repository</RepositoryLink>
         {quizAnswer === null && <Quiz id={id} onSubmit={handleSubmit} />}
         {quizAnswer !== null && (
           <div>
