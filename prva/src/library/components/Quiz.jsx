@@ -34,7 +34,7 @@ export function Quiz(props) {
       return () => {
         clearInterval(delta);
       }
-    }, []);
+    }, [props]);
 
   const handleAnswer = (id, choiceValue) => {
     setState((currentState) => ({
