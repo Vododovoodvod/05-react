@@ -23,7 +23,18 @@ export function Quiz(props) {
         return () => {
             console.log("Old state!");
         }
-    }) //ništa triggera uvijek
+    }); //ništa triggera uvijek
+
+    useEffect(() => {
+      const delta = setInterval(() => {
+        props.timeUp();
+        console.log("a");
+      }, 1000);
+
+      return () => {
+        clearInterval(delta);
+      }
+    }, []);
 
   const handleAnswer = (id, choiceValue) => {
     setState((currentState) => ({

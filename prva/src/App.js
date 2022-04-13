@@ -17,6 +17,11 @@ function App() {
     setLoginInfo(fromState);
   };
 
+  const [sec, setSec] = useState(0);
+  const goUp = () => {
+    setSec((sec) => sec+1);
+  }
+
   let answerComponents = null;
   
   if (quizAnswer !== null) {
@@ -34,9 +39,10 @@ function App() {
           <div>
             <div>Ime: {loginInfo.name}</div>
             <div>Email: {loginInfo.email}</div>
+            <div>Time: {sec} s</div>
           </div>
         )}
-        {loginInfo !== null && quizAnswer === null && <Quiz id={id} onSubmit={handleSubmit} />}
+        {loginInfo !== null && quizAnswer === null && <Quiz id={id} onSubmit={handleSubmit} timeUp={goUp}/>}
         {quizAnswer !== null && (
           <div>
             {answerComponents}
