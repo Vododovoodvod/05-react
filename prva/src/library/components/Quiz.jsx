@@ -25,7 +25,7 @@ export function Quiz(props) {
         }
     }); //ništa triggera uvijek
 
-    useEffect(() => {
+    useEffect((props) => {
       const delta = setInterval(() => {
         props.timeUp();
         console.log("a");
