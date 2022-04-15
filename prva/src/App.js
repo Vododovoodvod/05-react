@@ -1,5 +1,4 @@
 import "./App.css";
-import { idHelpers } from "./library/helpers";
 import { Quiz } from "./library/components/Quiz";
 import { useContext, useState } from "react";
 import { LoginForm } from "./library/components/LoginForm";
