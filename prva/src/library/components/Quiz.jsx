@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ABCQuestion } from "./ABCQuestion";
 import { ABQuestion } from "./ABQuestion";
 import { FreeInputQuestion } from "./FreeInputQuestion";
+import { SingleChoiceQuestion } from "./SingleChoiceQuestion";
+import { AppContext } from "../contexts/AppContext";
 
 const question = [
   {text: "Enter your name", id: "name"},
@@ -12,6 +14,8 @@ const question = [
 
 export function Quiz(props) {
   const [state, setState] = useState({});
+
+  const appState = useContext(AppContext);
 
     useEffect(() => {
         console.log("First mount!");
@@ -44,7 +48,7 @@ export function Quiz(props) {
   };
 
   const handleSubmit = () => {
-    props.onSubmit(state, props.id);
+    props.onSubmit(state, appState.state.id);
   };
 
   const questionsMap = question.map((question, index) => {
@@ -55,6 +59,7 @@ export function Quiz(props) {
   return (
     <div>
       {questionsMap}
+      <SingleChoiceQuestion/>
       <ABQuestion
         id="question1"
         question="Make the right choice"

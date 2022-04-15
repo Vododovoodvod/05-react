@@ -1,13 +1,16 @@
 import "./App.css";
 import { idHelpers } from "./library/helpers";
 import { Quiz } from "./library/components/Quiz";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LoginForm } from "./library/components/LoginForm";
+import { AppContext } from "./library/contexts/AppContext";
+import { Title } from "./library/components/Title";
 
 function App() {
+  const appState = useContext(AppContext);
+  console.log(appState);
   const [quizAnswer, setQuizAnswer] = useState(null);
 
-  const id = idHelpers.generateID();
   const handleSubmit = (answers, id) => {
     setQuizAnswer({ answers, id });
   };
@@ -34,6 +37,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Title/>
+        <button onClick={()=>{appState.setState("1")}}>Click me</button>
+
+        <button onClick={()=>{appState.setLocale("HR")}}>HR</button>
+        <button onClick={()=>{appState.setLocale("EN")}}>EN</button>
+        <button onClick={()=>{appState.setLocale("DE")}}>DE</button>
+
         {loginInfo === null && <LoginForm onLogin={handleLogin}/>}
         {loginInfo !== null && (
           <div>
@@ -42,7 +52,7 @@ function App() {
             <div>Time: {sec} s</div>
           </div>
         )}
-        {loginInfo !== null && quizAnswer === null && <Quiz id={id} onSubmit={handleSubmit} timeUp={goUp}/>}
+        {loginInfo !== null && quizAnswer === null && <Quiz onSubmit={handleSubmit} timeUp={goUp}/>}
         {quizAnswer !== null && (
           <div>
             {answerComponents}

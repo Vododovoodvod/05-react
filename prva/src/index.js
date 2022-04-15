@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { AppProvider } from "./library/contexts/AppContext";
+import { idHelpers } from './library/helpers';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppProvider value={{id: idHelpers.generateID()}}>
+      <App />
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
