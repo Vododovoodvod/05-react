@@ -12,7 +12,7 @@ export function AppProvider(props) {
         state: state,
         locale: locale,
         setState: setState,
-        setLocale: setLocale,
+        setLocale: setLocale, 
     };
 
     return <AppContext.Provider value={value}>{props.children}</AppContext.Provider>

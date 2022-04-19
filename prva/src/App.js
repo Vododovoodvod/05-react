@@ -1,9 +1,10 @@
-import "./App.css";
-import { Quiz } from "./library/components/Quiz";
+import { Quiz } from "./components/Quiz";
 import { useContext, useState } from "react";
-import { LoginForm } from "./library/components/LoginForm";
-import { AppContext } from "./library/contexts/AppContext";
-import { Title } from "./library/components/Title";
+import { LoginForm } from "./components/LoginForm";
+import { AppContext } from "./contexts/AppContext";
+import { Title } from "./components/Title";
+import { Heading } from "./components/typography/Heading";
+import { Button } from "./components/Button";
 
 function App() {
   const appState = useContext(AppContext);
@@ -36,12 +37,21 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Heading element="h1" size="1">Hello world!</Heading>
         <Title/>
-        <button onClick={()=>{appState.setState("1")}}>Click me</button>
+        <Button buttonType="primary" onClick={()=>{appState.setState("1")}}>
+          Click Me
+        </Button>
 
-        <button onClick={()=>{appState.setLocale("HR")}}>HR</button>
-        <button onClick={()=>{appState.setLocale("EN")}}>EN</button>
-        <button onClick={()=>{appState.setLocale("DE")}}>DE</button>
+        <Button buttonType="primary" onClick={()=>{appState.setLocale("HR")}}>
+          HR
+        </Button>
+        <Button buttonType="secondary" onClick={()=>{appState.setLocale("EN")}}>
+          EN
+        </Button>
+        <Button buttonType="ghost" onClick={()=>{appState.setLocale("DE")}}>
+          DE
+        </Button>
 
         {loginInfo === null && <LoginForm onLogin={handleLogin}/>}
         {loginInfo !== null && (

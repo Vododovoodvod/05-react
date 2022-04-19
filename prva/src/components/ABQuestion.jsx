@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import "./ABQuestion.css";
+import "../styles/ABQuestion.css";
 
 export function ABQuestion(props) {
   const handleOnClickA = () => props.onChoice(props.id, props.buttonAValue);

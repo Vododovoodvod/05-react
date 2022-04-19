@@ -1,9 +1,10 @@
+import "the-new-css-reset/css/reset.css"
+import "./styles/index.css"
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { AppProvider } from "./library/contexts/AppContext";
+import { AppProvider } from "./contexts/AppContext";
 import { idHelpers } from './library/helpers';
 
 ReactDOM.render(
