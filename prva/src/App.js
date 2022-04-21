@@ -5,6 +5,9 @@ import { AppContext } from "./contexts/AppContext";
 import { Title } from "./components/Title";
 import { Heading } from "./components/typography/Heading";
 import { Button } from "./components/Button";
+import { HomePage } from "./pages/Home";
+import { HelpPage } from "./pages/Help";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const appState = useContext(AppContext);
@@ -36,6 +39,13 @@ function App() {
 
   return (
     <div className="App">
+      <Routes>
+        <Route index element={<HomePage/>}/>
+        <Route path="/help" element={<HelpPage/>}>
+          <Route path=":topic" element={<HelpPage/>}/>
+        </Route>
+        
+      </Routes>
       <header className="App-header">
         <Heading element="h1" size="1">Hello world!</Heading>
         <Title/>
